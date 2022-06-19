@@ -1,11 +1,11 @@
-SRCS			= main.cpp Fixed.cpp
+SRCS			= main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -I.
 
-NAME			= fixed01
+NAME			= fixed03
 
 .PHONY:			all clean fclean re test
 
