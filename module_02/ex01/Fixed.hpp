@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -23,5 +24,6 @@ public:
 
 };
 
+std::ostream&	operator<<(std::ostream &out, const Fixed &obj);
 
 #endif
