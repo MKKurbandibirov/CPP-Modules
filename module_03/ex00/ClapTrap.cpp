@@ -3,8 +3,8 @@
 ClapTrap::ClapTrap( void ) {
     this->name = "Undefined";
     this->damage = 0;
-    this->hitPoints = 0;
-    this->energyPoints = 0;
+    this->energyPoints = 10;
+    this->hitPoints = 10;
     std::cout << "Empty ClapTrap created!" << std::endl;
 }
 

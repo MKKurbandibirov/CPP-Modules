@@ -1,10 +1,10 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) {
+ScavTrap::ScavTrap( void ) : ClapTrap(){
     this->name = "Undefined";
-    this->damage = 0;
-    this->hitPoints = 0;
-    this->energyPoints = 0;
+    this->damage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
     std::cout << "Empty ScavTrap created!" << std::endl;
 }
 
@@ -49,4 +49,36 @@ void    ScavTrap::attack( const std::string& name ) {
         return;
     }
     std::cout << "ScavTrap " << this->name << " has no any enrgy for it!" << std::endl;
+}
+
+std::string ScavTrap::getName( void ) const {
+    return this->name;
+}
+
+void ScavTrap::setName( const std::string& name ) {
+    this->name = name;
+}
+
+int ScavTrap::getEP( void ) const {
+    return this->energyPoints;
+}
+
+void ScavTrap::setEP( const int ep ) {
+    this->energyPoints = ep;
+}
+
+int ScavTrap::getHP( void ) const {
+    return this->hitPoints;
+}
+
+void ScavTrap::setHP( const int hp ) {
+    this->hitPoints = hp;
+}
+
+int ScavTrap::getDamage( void ) const {
+    return this->damage;
+}
+
+void ScavTrap::setDamage( const int damage ) {
+    this->damage = damage;
 }
