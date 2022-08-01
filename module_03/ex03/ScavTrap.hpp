@@ -3,8 +3,14 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public virtual ClapTrap 
+class ScavTrap: virtual public ClapTrap 
 {
+private:
+    std::string name;
+    int         hitPoints;
+    int         energyPoints;
+    int         damage;
+
 public:
     ScavTrap( void );
     ~ScavTrap( void );
@@ -16,14 +22,17 @@ public:
     void    guardGate( void );
     void    attack( const std::string & );
 
-    // std::string     getName( void ) const;
-    // void            setName( const std::string& );
-    // unsigned int    getHP( void ) const;
-    // void            setHP( unsigned int );
-    // unsigned int    getEP( void ) const;
-    // void            setEP( unsigned int );
-    // unsigned int    getDamage( void ) const;
-    // void            setDamage( unsigned int );
+    std::string getName( void ) const;
+    void    setName( const std::string &name );
+
+    int getHP( void ) const;
+    void    setHP( const int );
+
+    int getEP( void ) const;
+    void    setEP( const int );
+
+    int getDamage( void ) const;
+    void    setDamage( const int );
 };
 
 

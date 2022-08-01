@@ -5,9 +5,12 @@
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap : private ScavTrap, private FragTrap {
 private:
     std::string name;
+    int         hitPoints;
+    int         energyPoints;
+    int         damage;
 public:
     DiamondTrap( void );
     ~DiamondTrap( void );
@@ -19,14 +22,17 @@ public:
     void    whoAmI( void );
     void    attack( const std::string & );
 
-    // std::string     getName( void ) const;
-    // void            setName( const std::string& );
-    // unsigned int    getHP( void ) const;
-    // void            setHP( unsigned int );
-    // unsigned int    getEP( void ) const;
-    // void            setEP( unsigned int );
-    // unsigned int    getDamage( void ) const;
-    // void            setDamage( unsigned int );
+    std::string getName( void ) const;
+    void    setName( const std::string &name );
+
+    int getHP( void ) const;
+    void    setHP( const int );
+
+    int getEP( void ) const;
+    void    setEP( const int );
+
+    int getDamage( void ) const;
+    void    setDamage( const int damage );
 
 };
 

@@ -1,10 +1,10 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( void ) {
+DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     this->setName("Undefined");
-    this->setDamage(0);
-    this->setHP(0);
-    this->setEP(0);
+    this->setDamage(FragTrap::getDamage());
+    this->setEP(ScavTrap::getEP());
+    this->setHP(FragTrap::getHP());
     std::cout << "Empty DiamondTrap created!" << std::endl;
 }
 
@@ -44,4 +44,36 @@ void    DiamondTrap::attack( const std::string& name ) {
 
 void    DiamondTrap::whoAmI( void ) {
     std::cout << "My name is " << this->getName() << " and my grandpa's name is " << ClapTrap::getName() << std::endl;
+}
+
+std::string DiamondTrap::getName( void ) const {
+    return this->name;
+}
+
+void DiamondTrap::setName( const std::string& name ) {
+    this->name = name;
+}
+
+int DiamondTrap::getEP( void ) const {
+    return this->energyPoints;
+}
+
+void DiamondTrap::setEP( const int ep ) {
+    this->energyPoints = ep;
+}
+
+int DiamondTrap::getHP( void ) const {
+    return this->hitPoints;
+}
+
+void DiamondTrap::setHP( const int hp ) {
+    this->hitPoints = hp;
+}
+
+int DiamondTrap::getDamage( void ) const {
+    return this->damage;
+}
+
+void DiamondTrap::setDamage( const int damage ) {
+    this->damage = damage;
 }

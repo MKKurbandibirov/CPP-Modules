@@ -23,14 +23,17 @@ public:
     void takeDamage( unsigned int );
     void beRepaired( unsigned int );
 
-    std::string     getName( void ) const;
-    void            setName( const std::string& );
-    unsigned int    getHP( void ) const;
-    void            setHP( unsigned int );
-    unsigned int    getEP( void ) const;
-    void            setEP( unsigned int );
-    unsigned int    getDamage( void ) const;
-    void            setDamage( unsigned int );
+    std::string getName( void ) const;
+    void    setName( const std::string &name );
+
+    int getHP( void ) const;
+    void    setHP( const int );
+
+    int getEP( void ) const;
+    void    setEP( const int );
+
+    int getDamage( void ) const;
+    void    setDamage( const int damage );
 };
 
 
