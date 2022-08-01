@@ -3,8 +3,8 @@
 ClapTrap::ClapTrap( void ) {
     this->name = "Undefined";
     this->damage = 0;
-    this->hitPoints = 0;
-    this->energyPoints = 0;
+    this->energyPoints = 10;
+    this->hitPoints = 10;
     std::cout << "Empty ClapTrap created!" << std::endl;
 }
 
@@ -56,4 +56,36 @@ void    ClapTrap::takeDamage( unsigned int amount ) {
         return;
     }
     std::cout << "ClapTrap " << this->name << " is already died!" << std::endl;
+}
+
+std::string ClapTrap::getName( void ) const {
+    return this->name;
+}
+
+void ClapTrap::setName( const std::string& name ) {
+    this->name = name;
+}
+
+int ClapTrap::getEP( void ) const {
+    return this->energyPoints;
+}
+
+void ClapTrap::setEP( const int ep ) {
+    this->energyPoints = ep;
+}
+
+int ClapTrap::getHP( void ) const {
+    return this->hitPoints;
+}
+
+void ClapTrap::setHP( const int hp ) {
+    this->hitPoints = hp;
+}
+
+int ClapTrap::getDamage( void ) const {
+    return this->damage;
+}
+
+void ClapTrap::setDamage( const int damage ) {
+    this->damage = damage;
 }
