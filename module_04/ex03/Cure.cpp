@@ -8,9 +8,7 @@ Cure::Cure(std::string const &type) {
     this->type = "Cure_" + type;
 }
 
-Cure::Cure(const Cure& another) {
-    this->type = another.type;
-}
+Cure::Cure(const Cure& another): AMateria(another) {}
 
 Cure& Cure::operator=(const Cure& another) {
     if (this == &another) {

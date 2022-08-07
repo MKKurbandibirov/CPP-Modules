@@ -8,9 +8,7 @@ Ice::Ice(std::string const &type) {
     this->type = "Ice_" + type;
 }
 
-Ice::Ice(const Ice& another) {
-    this->type = another.type;
-}
+Ice::Ice(const Ice& another): AMateria(another) {}
 
 Ice& Ice::operator=(const Ice& another) {
     if (this == &another) {

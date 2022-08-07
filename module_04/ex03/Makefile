@@ -1,7 +1,7 @@
-SRCS			= AMateria.cpp Ice.cpp Cure.cpp Character.cpp main.cpp
+SRCS			= AMateria.cpp Ice.cpp Cure.cpp Character.cpp main.cpp MateriaSource.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
-CXX				= clang++
+CXX				= c++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -I.
 
