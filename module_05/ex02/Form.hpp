@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include <vector>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -23,10 +24,13 @@ public:
 
     std::string getName( void ) const;
     bool getSign( void ) const;
+    void setSign( bool );
     int getSignGrade( void ) const;
     int getExecuteGrade( void ) const;
 
-    void beSigned( const Bureaucrat& );
+    virtual void beSigned( const Bureaucrat& ) = 0;
+    virtual void execute( const Bureaucrat& ) const = 0;
+    void permit(const Bureaucrat& ) const;
 
     class GradeTooHighException: public std::exception {
     private:
@@ -44,6 +48,15 @@ public:
         GradeTooLowException( std::string );
         virtual ~GradeTooLowException() throw() {return;}
         const char* what( void ) const throw();
+    };
+
+    class FormNotSignedException: public std::exception {
+    private:
+        std::string formName;
+    public:
+        FormNotSignedException( std::string );
+        virtual ~FormNotSignedException() throw() {return;}
+        const char* what() const throw();
     };
 };
 
