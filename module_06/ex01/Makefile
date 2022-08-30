@@ -1,11 +1,11 @@
-SRCS			= Bureaucrat.cpp  main.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
+SRCS			= main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -I.
 
-NAME			= excep03
+NAME			= serialize
 
 .PHONY:			all clean fclean re test
 

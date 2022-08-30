@@ -5,7 +5,7 @@ CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -g -I.
 
-NAME			= excep01
+NAME			= excep02
 
 .PHONY:			all clean fclean re test
 
