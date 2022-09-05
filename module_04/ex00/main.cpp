@@ -17,9 +17,12 @@ int main()
 
 	const WrongAnimal* wrongMeta = new WrongAnimal();
 	const WrongAnimal* k = new WrongCat();
+	const WrongCat* l = new WrongCat();
 	std::cout << k->getType() << " " << std::endl;
+	std::cout << l->getType() << " " << std::endl;
 	k->makeSound();
 	wrongMeta->makeSound();
+	l->makeSound();
 
 	std::cout << "------------------------" << std::endl;
 
@@ -28,6 +31,7 @@ int main()
 	delete i;
 	delete wrongMeta;
 	delete k;
+	delete l;
 
 	return 0;
 }

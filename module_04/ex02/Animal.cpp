@@ -26,15 +26,3 @@ Animal& Animal::operator=(const Animal& another) {
 Animal::~Animal(void) {
 	std::cout << "Destructor for class Animal called!" << std::endl;
 }
-
-std::string Animal::getType(void) const {
-	return this->type;
-}
-
-void Animal::setType(std::string& type) {
-	this->type = type;
-}
-
-void Animal::makeSound(void) const{
-	std::cout << "Uncknown sound" << std::endl;
-}
