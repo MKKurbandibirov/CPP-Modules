@@ -8,16 +8,12 @@ int main() {
     std::cout << b1;
     try {
         b1.incrementGrade();
-    } catch (std::exception &e) {
-        e.what();
-    }
+    } catch (std::exception &e) {}
     std::cout << b1;
 
     try {
         Bureaucrat b2("John", 151);
-    } catch (std::exception &e) {
-        e.what();
-    }
+    } catch (std::exception &e) {}
 
     return 0;
 }

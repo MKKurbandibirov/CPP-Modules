@@ -16,7 +16,7 @@ int main() {
     //     b1.executeForm(sh2);
     //     b2.signForm(sh2);
     // } catch (std::exception &ex) {
-    //     ex.what();
+    //     std::cout << ex.what() << std::endl;
     // }
 
     // RobotomyRequestForm r1("FORM-8B", "Alice");
@@ -26,10 +26,10 @@ int main() {
     // try {
     //     b3.signForm(r1);
     //     b3.executeForm(r1);
-    //     // b3.executeForm(r2);
+    //     b3.executeForm(r2);
     //     b4.signForm(r2);
     // } catch (std::exception &ex) {
-    //     ex.what();
+    //     std::cout << ex.what() << std::endl;
     // }
 
     // PresidentialPardonForm p1("FORM-1G", "Arthur");
@@ -39,20 +39,20 @@ int main() {
     // try {
     //     b5.signForm(p1);
     //     b5.executeForm(p1);
-    //     // b5.executeForm(p2);
+    //     b5.executeForm(p2);
     //     b6.signForm(p2);
     // } catch (std::exception &ex) {
-    //     ex.what();
+    //     std::cout << ex.what() << std::endl;
     // }
 
     try {
         Intern i1;
 
-        Form* f1 = i1.makeForm("robotomy request", "Bender");
+        Form* f1 = i1.makeForm("robotomy", "Bender");
         std::cout << *f1;
         delete f1;
     } catch (Intern::FormNotFoundException &ex) {
-        ex.what();
+        std::cout << ex.what() << std::endl;
     }
     return 0;
 }

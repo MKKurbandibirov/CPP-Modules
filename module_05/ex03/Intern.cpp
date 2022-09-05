@@ -25,24 +25,18 @@ Form* Intern::createPresidentialPardonForm(std::string target) {
     return new PresidentialPardonForm("presidential pardon", target);
 }
 
+typedef Form* (Intern::*func)(std::string);
+
 Form* Intern::makeForm(std::string name, std::string target) {
-    Form *(Intern::*funcs_arr[3])( std::string target ) = {&Intern::createShrubberyCreationForm,
-                                                                &Intern::createRobotomyRequestForm,
-                                                                &Intern::createPresidentialPardonForm};
+    func funcs_arr[3] = {&Intern::createShrubberyCreationForm, &Intern::createRobotomyRequestForm, &Intern::createPresidentialPardonForm};
     for (int i = 0; i < 3; i++) {
         if (Intern::names[i] == name) {
             return (this->*funcs_arr[i])(target);
         }
     }
-    throw FormNotFoundException(name);
-}
-
-Intern::FormNotFoundException::FormNotFoundException(std::string formName) {
-    this->formName = formName;
+    throw FormNotFoundException();
 }
 
 const char* Intern::FormNotFoundException::what() const throw() {
-    std::string res = "The form " + formName + " not found!";
-    std::cout << res;
-    return NULL;
+    return (char *)"The form not found!";
 }

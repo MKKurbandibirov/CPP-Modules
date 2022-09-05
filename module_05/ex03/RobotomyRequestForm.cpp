@@ -24,7 +24,7 @@ void RobotomyRequestForm::beSigned(const Bureaucrat& obj) {
     if (obj.getGrade() <= this->getSignGrade()) {
         this->setSign(true);
     } else {
-        throw RobotomyRequestForm::GradeTooLowException(this->getName());
+        throw RobotomyRequestForm::GradeTooLowException();
     }
 }
 
@@ -38,6 +38,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& obj) const {
             std::cout << this->target << " robotomy failed!" << std::endl;
         }
     } catch (RobotomyRequestForm::GradeTooLowException& ex) {
-        throw RobotomyRequestForm::GradeTooLowException(this->getName());
+        throw RobotomyRequestForm::GradeTooLowException();
     }
 }

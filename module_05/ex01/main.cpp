@@ -6,14 +6,12 @@ int main() {
     Bureaucrat b1("Bob", 10), b2("John", 40);
 
     try {
-        f1.beSigned(b1);
         b1.signForm(f1);
     } catch (std::exception &e) {
         e.what();
     }
 
     try {
-        f2.beSigned(b2);
         b2.signForm(f2);
     } catch (std::exception &e) {
         e.what();

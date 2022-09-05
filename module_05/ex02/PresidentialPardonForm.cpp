@@ -24,7 +24,7 @@ void PresidentialPardonForm::beSigned(const Bureaucrat& obj) {
     if (obj.getGrade() <= this->getSignGrade()) {
         this->setSign(true);
     } else {
-        throw PresidentialPardonForm::GradeTooLowException(this->getName());
+        throw PresidentialPardonForm::GradeTooLowException();
     }
 }
 
@@ -33,6 +33,6 @@ void PresidentialPardonForm::execute(const Bureaucrat& obj) const {
         PresidentialPardonForm::permit(obj);
         std::cout << this->target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
     } catch (PresidentialPardonForm::GradeTooLowException & e) {
-        throw PresidentialPardonForm::GradeTooLowException(this->getName());
+        throw PresidentialPardonForm::GradeTooLowException();
     }
 }

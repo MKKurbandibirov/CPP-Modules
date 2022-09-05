@@ -6,9 +6,9 @@ Form::~Form(void) {}
 
 Form::Form(std::string name, int sign, int execute): name(name), isSigned(false), executeGrade(execute) {
     if (sign < 1) {
-        throw GradeTooHighException(this->getName());
+        throw GradeTooHighException();
     } else if (sign > 150) {
-        throw GradeTooLowException(this->getName());
+        throw GradeTooLowException();
     }
     this->signGrade = sign;
 }
@@ -49,9 +49,9 @@ int Form::getExecuteGrade(void) const {
 
 void Form::permit(const Bureaucrat& executor) const {
     if (this->getSign() == false) {
-        throw FormNotSignedException(this->getName());
+        throw FormNotSignedException();
     } else if (executor.getGrade() > this->getExecuteGrade()) {
-        throw GradeTooLowException(this->getName());
+        throw GradeTooLowException();
     }
 }
 
@@ -60,32 +60,14 @@ std::ostream&	operator<<( std::ostream& out, const Form& obj) {
     return out;
 }
 
-Form::GradeTooHighException::GradeTooHighException(std::string formName) {
-    this->formName = formName;
-}
-
 const char* Form::GradeTooHighException::what() const throw() {
-    std::string res = "The form " + formName + " grade too high!";
-    std::cout << res;
-    return NULL;
-}
-
-Form::GradeTooLowException::GradeTooLowException(std::string formName) {
-    this->formName = formName;
+    return (char *)"The form grade too high!";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-    std::string res = "The form " + formName + " grade too low!";
-    std::cout << res;
-    return NULL;
-}
-
-Form::FormNotSignedException::FormNotSignedException(std::string formName) {
-    this->formName = formName;
+    return (char *)"The form grade too low!";
 }
 
 const char* Form::FormNotSignedException::what() const throw() {
-    std::string res = "The form " + formName + " not signed!";
-    std::cout << res;
-    return NULL;
+    return (char *)"The form not signed!";
 }

@@ -11,12 +11,6 @@ Form::Form(std::string name, int sign, int execute): name(name), isSigned(false)
         throw GradeTooLowException(this->getName());
     }
     this->signGrade = sign;
-    // if (execute < 1) {
-    //     throw GradeTooHighException(this->getName());
-    // } else if (execute > 150) {
-    //     throw GradeTooLowException(this->getName());
-    // }
-    // this->executeGrade = execute;
 }
 
 Form::Form(const Form& other): name(other.name), executeGrade(other.executeGrade) {

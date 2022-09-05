@@ -4,9 +4,9 @@ Bureaucrat::Bureaucrat(void): name("Unknown"), grade(15) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name) {
     if (grade < 1) {
-        throw GradeTooHighException(this->getName());
+        throw GradeTooHighException();
     } else if (grade > 150) {
-        throw GradeTooLowException(this->getName());
+        throw GradeTooLowException();
     }
     this->grade = grade;
 }
@@ -41,14 +41,14 @@ std::ostream&	operator<<( std::ostream& out, const Bureaucrat& obj) {
 void Bureaucrat::incrementGrade(void) {
     this->grade -= 1;
     if (this->grade < 1) {
-        throw GradeTooHighException(this->getName());
+        throw GradeTooHighException();
     }
 }
 
 void Bureaucrat::decrementGrade(void) {
     this->grade += 1;
     if (this->grade > 150) {
-        throw GradeTooLowException(this->getName());
+        throw GradeTooLowException();
     }
 }
 
@@ -72,10 +72,10 @@ void Bureaucrat::executeForm(const Form& form) const {
     }
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(std::string name) {
-    std::cout << "The grade too high for bureaucrat " + name + "!" << std::endl;
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return (char *)"The grade too high for bureaucrat";
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(std::string name) {
-    std::cout << "The grade too low for bureaucrat " + name + "!" << std::endl;
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+    return (char *)"The grade too low for bureaucrat";
 }

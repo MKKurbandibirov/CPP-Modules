@@ -33,29 +33,17 @@ public:
     void permit(const Bureaucrat& ) const;
 
     class GradeTooHighException: public std::exception {
-    private:
-        std::string formName;
     public:
-        GradeTooHighException( std::string );
-        virtual ~GradeTooHighException() throw() {return;}
         const char* what() const throw();
     };
 
     class GradeTooLowException: public std::exception {
-    private:
-        std::string formName;
     public:
-        GradeTooLowException( std::string );
-        virtual ~GradeTooLowException() throw() {return;}
         const char* what( void ) const throw();
     };
 
     class FormNotSignedException: public std::exception {
-    private:
-        std::string formName;
     public:
-        FormNotSignedException( std::string );
-        virtual ~FormNotSignedException() throw() {return;}
         const char* what() const throw();
     };
 };

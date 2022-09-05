@@ -24,7 +24,7 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat& obj) {
     if (obj.getGrade() <= this->getSignGrade()) {
         this->setSign(true);
     } else {
-        throw ShrubberyCreationForm::GradeTooLowException(this->getName());
+        throw ShrubberyCreationForm::GradeTooLowException();
     }
 }
 
@@ -32,7 +32,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& obj) const {
     try {
         ShrubberyCreationForm::permit(obj);
     } catch (ShrubberyCreationForm::GradeTooLowException &ex) {
-        throw ShrubberyCreationForm::GradeTooLowException(this->getName());
+        throw ShrubberyCreationForm::GradeTooLowException();
     }
     std::ofstream outfile;
     std::string fileName = this->target + "_shrubbery";

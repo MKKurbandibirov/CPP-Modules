@@ -10,7 +10,7 @@ class Intern {
 private:
     static const std::string names[3];
 
-    static Form* createShrubberyCreationForm( std::string );
+    Form* createShrubberyCreationForm( std::string );
     Form* createRobotomyRequestForm( std::string );
     Form* createPresidentialPardonForm( std::string );
 public:
@@ -22,11 +22,7 @@ public:
     Form* makeForm( std::string, std::string );
 
     class FormNotFoundException : public std::exception {
-    private:
-        std::string formName;
     public:
-        FormNotFoundException( std::string );
-        virtual ~FormNotFoundException() throw() {return;}
         const char* what() const throw();
     };
 };
