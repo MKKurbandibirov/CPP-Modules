@@ -20,8 +20,8 @@ public:
 
 	void addNumber( int );
 	void addNumbersRange( int, int);
-	unsigned int shortestSpan( void );
-	unsigned int longestSpan( void );
+	int shortestSpan( void );
+	int longestSpan( void );
 
 	void print();
 };

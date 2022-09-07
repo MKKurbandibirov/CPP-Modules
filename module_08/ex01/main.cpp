@@ -12,10 +12,10 @@ int main()
 	sp.print();
 
 	std::cout << std::endl;
-	// sp.addNumbersRange(3, 8);
+	// sp.addNumbersRange(13, 16);
 
 	// sp.print();
 	std::cout << sp.shortestSpan() << std::endl;
-	// std::cout << sp.longestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 	return 0;
 }

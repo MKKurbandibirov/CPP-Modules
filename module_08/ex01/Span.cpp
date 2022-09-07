@@ -37,19 +37,29 @@ void Span::addNumbersRange(int from, int to) {
 	}
 }
 
-unsigned int Span::shortestSpan(void) {
+int Span::shortestSpan(void) {
 	std::vector<int> copy;
 	std::copy(this->container.begin(), this->container.end(), std::back_inserter(copy));
 	std::sort(copy.begin(), copy.end());
-	unsigned int minSpan = INT32_MAX;
+	int minSpan = INT32_MAX;
 	for (int i = 0; i < (int)copy.size() - 1; i++) {
-		if (copy.at(i + 1) - copy.at(i) < (int)minSpan) {
-			minSpan = copy.at(i) - copy.at(i + 1);
+		if (std::abs(copy.at(i + 1) - copy.at(i)) < minSpan) {
+			minSpan = std::abs(copy.at(i + 1) - copy.at(i));
 		}
 	}
 	return minSpan;
 }
 
+int Span::longestSpan(void) {
+	int maxSpan = 0;
+	for (int i = 0; i < (int)this->container.size(); i++) {
+		for (int j = 0; j < (int)this->container.size(); j++)
+		if (std::abs(this->container.at(j) - this->container.at(i)) > maxSpan) {
+			maxSpan = std::abs(this->container.at(i + 1) - this->container.at(i));
+		}
+	}
+	return maxSpan;
+}
 
 void Span::print() {
 	for (int i = 0; i < (int)this->container.size(); i++) {
